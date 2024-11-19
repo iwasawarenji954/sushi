@@ -1,0 +1,69 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+#game-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#sushi-area {
+  height: 100px;
+  line-height: normal;
+  text-align:  center; 
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+  background: #000;
+}
+
+/*
+#typing-box {
+  width: 80%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+*/
+#typing-box {
+  width: 0%;
+  padding: 0px;
+  font-size: 0%;
+}
+#score {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+}
+.correct {
+  color: #4f4f4f;
+  font-weight: bold;
+}
+
+.japanese {
+  font-style: italic; /* ローマ字を少しスタイリッシュにする例 */
+  font-size: 24px;
+  padding-top: 20px;
+  color: #fff;
+}
+
+.romaji {
+  font-style: italic; /* ローマ字を少しスタイリッシュにする例 */
+  font-size: 18px;
+  padding: 10px;
+  color: #fff;
+}
+
+.centering_item {
+  vertical-align:  middle;    /* 中央寄せ */
+  color: #fff;
+}
