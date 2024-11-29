@@ -1,36 +1,6 @@
+import { sushiList } from './sushiList.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 寿司ネタのリストとローマ字の対応
-  const sushiList = [
-    //20241127の処理方法だと途中のnn処理が曖昧になります。
-    /*
-    { japanese: "蓮司",
-      romaji  : ["renji", "renzi", "rennji", "rennzi"] },
-    */
-    { japanese: "サーモン",
-      romaji  : ["saamonn", "sa-monn"] },
-    /*
-    { japanese: "えび",
-      romaji  : ["ebi"] },
-    { japanese: "いくら",
-      romaji  : ["ikura"] },
-    { japanese: "たまご",
-      romaji  : ["tamago"] },
-    { japanese: "かっぱ巻き",
-      romaji  : ["kappamaki"] },
-    { japanese: "うに",
-      romaji  : ["uni"] },
-    { japanese: "さば",
-      romaji  : ["saba"] },
-    { japanese: "蓮司",
-      romaji  : ["renzi", "renji"] },
-    { japanese: "タケシ",
-      romaji  : ["takeshi", "takesi"] },
-    */
-    { japanese: "成田",
-      romaji  : ["narita"] }
-
-  ];
-
   //DOM要素の取得
   //HTMLのidタグをJSで使えるようにしているConnection
   const sushiArea    = document.getElementById('sushi-area');
@@ -93,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ゲームリセット処理
   function resetGame() {
     clearInterval(timerInterval); // タイマーを停止
-    timerInterval = null; // タイマーIDをリセット
     score = 0;
     misses = 0;
     timeLeft = -1;// 0以上だとtimer動く
@@ -112,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       startGame(); // ゲーム開始
     } else if (event.key === "Escape") {
       resetGame(); // ゲームリセット
-    }
-    if (isGameStarted){
+    } else if (isGameStarted){
       //keydownが行われると毎回eventに格納され、関数呼ばれる
       const key = event.key;
       let isKeyCorrect = false;
