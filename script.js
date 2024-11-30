@@ -1,4 +1,5 @@
 import { sushiList } from './sushiList.js';
+import { audioPaths } from './audioPath.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   //DOM要素の取得
@@ -7,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreDisplay = document.getElementById('score');
   const timerDisplay = document.getElementById('timer');
   const missDisplay  = document.getElementById('misses'); // ミスの表示用
+
+  //audio関係
+  const correctSound = new Audio(audioPaths.correct);
+  const missSound    = new Audio(audioPaths.miss);
+  const typingSound  = new Audio(audioPaths.typing);
 
   //変数の初期化
   let score              = 0;
@@ -75,6 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
     missDisplay.textContent  = " ";
   }
 
+  function playCorrectSound() {
+    correctSound.currentTime = 0;
+    // correctSound.volume = 1.0;
+    correctSound.play();
+  }
+
+  function playMissSound() {
+    missSound.currentTime = 0;
+    // missSound.volume = 1.0;
+    missSound.play();
+  }
+
+  function playTypingSound() {
+    typingSound.currentTime = 0;
+    typingSound.volume = 1.0;
+    typingSound.play();
+  }
+
   // キーボードイベントリスナーで入力を処理
   document.addEventListener('keydown', (event) => {
     if (event.key === " " || event.key === "Enter") {
@@ -83,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resetGame(); // ゲームリセット
     } else if (isGameStarted){
       //keydownが行われると毎回eventに格納され、関数呼ばれる
+      playTypingSound();
       const key = event.key;
       let isKeyCorrect = false;
 
@@ -100,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 入力が一致しなかった場合ミスをカウント
       if (!isKeyCorrect && key !== " " && key !== "Enter" && key !== "Backspace") {
+        playMissSound();
         misses++;
         missDisplay.textContent = `ミス: ${misses}`;
       }
@@ -119,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 完全に正しい場合はスコアを増やして次の寿司ネタへ
       if (typedIndex === targetRomaji.length) {
+        playCorrectSound();
         score++;
         scoreDisplay.textContent = `スコア: ${score}`;
         typedIndex = 0; // 入力位置をリセット
