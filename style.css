@@ -16,11 +16,10 @@ body {
 }
 
 #sushi-area {
-  height: 100px;
+  height: 200px;
   line-height: normal;
-  text-align:  center; 
+  text-align:  center;
   font-size: 24px;
-  margin-bottom: 20px;
   color: #fff;
   background: #000;
 }
@@ -50,17 +49,20 @@ body {
 }
 
 .japanese {
-  font-style: italic; /* ローマ字を少しスタイリッシュにする例 */
+  font-style: italic;
   font-size: 24px;
-  padding-top: 20px;
+  padding: 20px;
   color: #fff;
 }
 
 .romaji {
-  font-style: italic; /* ローマ字を少しスタイリッシュにする例 */
+  font-style: italic;
   font-size: 18px;
   padding: 10px;
   color: #fff;
+  overflow-wrap: break-word; /* 長い単語を改行 */
+  word-break: break-word;    /* さらに細かく改行を補助 */
+  white-space: normal;       /* 改行を有効にする */
 }
 
 .centering_item {

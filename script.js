@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isGameStarted) return; // すでにゲームが開始されている場合は何もしない
     if (timeLeft === -1){
       isGameStarted = true; // ゲームを開始状態に変更
-      timeLeft = 10;
+      timeLeft = 60;
       showRandomSushi(); // 最初の寿司を表示
       startTimer(); // タイマーを開始
     }
