@@ -83,13 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function playCorrectSound() {
     correctSound.currentTime = 0;
-    // correctSound.volume = 1.0;
+    correctSound.volume = 1.0; // 0.0~1.0までしか扱えない
     correctSound.play();
   }
 
   function playMissSound() {
     missSound.currentTime = 0;
-    // missSound.volume = 1.0;
+    missSound.volume = 1.0;
     missSound.play();
   }
 
@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       resetGame(); // ゲームリセット
     } else if (isGameStarted){
       //keydownが行われると毎回eventに格納され、関数呼ばれる
-      playTypingSound();
       const key = event.key;
       let isKeyCorrect = false;
 
@@ -119,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentRomajiIndex = i; // i番目のローマ字入力候補に定める
           typedIndex++; // 何番目の文字を次に比較するか
           isKeyCorrect = true;
+          playTypingSound();
           break;
         }
       }
